@@ -1,0 +1,708 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prof. Pierre tshibanda | Portfolio</title>
+
+<style>
+:root {
+    --bg: #0b1120;
+    --panel: #131e33;
+    --blue: #38bdf8;
+    --purple: #818cf8;
+    --text: #f1f5f9;
+    --muted: #a7b4c8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 17, 32, .94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid #ffffff12;
+}
+
+.navbar {
+    min-height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--blue);
+}
+
+.logo span {
+    color: white;
+}
+
+nav {
+    display: flex;
+    gap: 23px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+.hero {
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 85% 30%, #4338ca44, transparent 38%),
+        radial-gradient(ellipse at 10% 90%, #0284c744, transparent 35%);
+}
+
+.hero-content {
+    padding: 90px 0;
+    max-width: 780px;
+    animation: rise 1s ease;
+}
+
+.tag {
+    display: inline-block;
+    padding: 7px 15px;
+    border: 1px solid #38bdf855;
+    border-radius: 30px;
+    color: var(--blue);
+    background: #38bdf80d;
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.12;
+    margin-bottom: 22px;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    max-width: 680px;
+    color: var(--muted);
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn {
+    padding: 12px 23px;
+    border-radius: 9px;
+    display: inline-block;
+    font-weight: 650;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: linear-gradient(120deg, #0284c7, #4f46e5);
+    color: white;
+}
+
+.btn-secondary {
+    border: 1px solid #ffffff30;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px #0004;
+}
+
+section {
+    padding: 85px 0;
+    scroll-margin-top: 75px;
+}
+
+.section-heading {
+    margin-bottom: 35px;
+}
+
+.section-heading small {
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.section-heading h2 {
+    font-size: clamp(27px, 4vw, 38px);
+    margin: 7px 0;
+}
+
+.section-heading p {
+    color: var(--muted);
+    max-width: 700px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.card {
+    padding: 27px;
+    background: linear-gradient(145deg, #17243a, #10192b);
+    border: 1px solid #ffffff12;
+    border-radius: 17px;
+    transition: transform .3s, border-color .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: #38bdf877;
+}
+
+.card-icon {
+    width: 53px;
+    height: 53px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: #38bdf81a;
+    font-size: 26px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill {
+    background: #16253c;
+    color: #c4e9ff;
+    border: 1px solid #38bdf830;
+    padding: 9px 15px;
+    border-radius: 9px;
+    font-size: 14px;
+}
+
+.project-card {
+    overflow: hidden;
+    padding: 0;
+}
+
+.project-top {
+    min-height: 130px;
+    display: grid;
+    place-items: center;
+    font-size: 50px;
+    background: linear-gradient(135deg, #164e63, #312e81);
+}
+
+.project-body {
+    padding: 23px;
+}
+
+.project-body p {
+    margin-bottom: 16px;
+}
+
+.project-type {
+    color: var(--blue);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-date {
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 9px;
+}
+
+.event-card {
+    position: relative;
+}
+
+.event-card:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20px;
+    bottom: 20px;
+    width: 3px;
+    background: linear-gradient(var(--blue), var(--purple));
+    border-radius: 4px;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 35px;
+    align-items: start;
+}
+
+.about-box {
+    background: linear-gradient(145deg, #1e3a5f, #312e81);
+    border-radius: 20px;
+    min-height: 260px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.initials {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 35px;
+    font-weight: bold;
+    border: 2px solid #ffffff70;
+    background: #ffffff12;
+}
+
+.about-text p {
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.contact-card {
+    padding: 35px;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid #38bdf830;
+    background: linear-gradient(135deg, #12243c, #211e49);
+}
+
+.contact-card p {
+    color: var(--muted);
+    margin: 12px 0 25px;
+}
+
+footer {
+    border-top: 1px solid #ffffff12;
+    padding: 25px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .7s, transform .7s;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        padding: 16px 0;
+        flex-direction: column;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 13px;
+    }
+}
+
+@media (max-width: 540px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .contact-card {
+        padding: 25px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container navbar">
+        <a href="#accueil" class="logo">Prof. <span>Pierre.</span></a>
+
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#apropos">Profil</a>
+            <a href="#competences">Compétences</a>
+            <a href="#projets">Projets</a>
+            <a href="#evenements">Événements</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section class="hero" id="accueil">
+    <div class="container">
+        <div class="hero-content">
+            <span class="tag">Enseignement · Informatique · Innovation</span>
+
+            <h1>
+                Prof. Fortina<br>
+                <span>Muteba</span>
+            </h1>
+
+            <p>
+                Enseignant et professionnel de l'informatique,
+                passionné par les réseaux, la sécurité informatique,
+                l'administration des systèmes et l'innovation numérique.
+                Je partage mes connaissances pour former les talents de demain.
+            </p>
+
+            <div class="actions">
+                <a href="#apropos" class="btn btn-primary">
+                    Découvrir mon profil →
+                </a>
+                <a href="#projets" class="btn btn-secondary">
+                    Explorer mes projets
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="apropos">
+    <div class="container about">
+        <div class="about-box reveal">
+            <div>
+                <div class="initials">FM</div>
+                <h3 style="margin-top:15px">Prof. Pierre Tshibanda</h3>
+                <p>Enseignement & Technologies</p>
+            </div>
+        </div>
+
+        <div class="about-text reveal">
+            <div class="section-heading">
+                <small>À propos</small>
+                <h2>Transmettre le savoir, construire l'avenir</h2>
+            </div>
+
+            <p>
+                Mon parcours s'inscrit dans le domaine de l'informatique,
+                avec un intérêt particulier pour les réseaux informatiques,
+                l'administration des systèmes, les bases de données et
+                la sécurité des infrastructures numériques.
+            </p>
+
+            <p>
+                À travers l'enseignement et les travaux pratiques,
+                je cherche à rendre les notions techniques accessibles,
+                à développer l'esprit d'analyse des apprenants et à
+                rapprocher la théorie des réalités professionnelles.
+            </p>
+
+            <a href="#contact" class="btn btn-primary">
+                Entrer en contact
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="competences">
+    <div class="container">
+        <div class="section-heading reveal">
+            <small>Expertise</small>
+            <h2>Mes domaines de compétence</h2>
+            <p>
+                Des connaissances techniques au service de la formation
+                et de la conception de solutions informatiques.
+            </p>
+        </div>
+
+        <div class="grid">
+            <article class="card reveal">
+                <div class="card-icon">🌐</div>
+                <h3>Réseaux informatiques</h3>
+                <p>Architecture réseau, adressage IP, routage, commutation et VLAN.</p>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-icon">🔐</div>
+                <h3>Sécurité informatique</h3>
+                <p>Contrôle d'accès, filtrage réseau, segmentation et bonnes pratiques de sécurité.</p>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-icon">🖥️</div>
+                <h3>Administration systèmes</h3>
+                <p>Windows Server, gestion des utilisateurs, services réseau et virtualisation.</p>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-icon">🗄️</div>
+                <h3>Bases de données</h3>
+                <p>Principes de conception, organisation et administration des données.</p>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-icon">💻</div>
+                <h3>Programmation & Web</h3>
+                <p>Initiation à la programmation, HTML, CSS et développement Web.</p>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-icon">🎓</div>
+                <h3>Ingénierie pédagogique</h3>
+                <p>Préparation des cours, travaux pratiques, évaluation et apprentissage actif.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="projets">
+    <div class="container">
+        <div class="section-heading reveal">
+            <small>Réalisations</small>
+            <h2>Mes projets informatiques</h2>
+            <p>
+                Exemples de projets à présenter dans mon portfolio.
+                Les descriptions sont à adapter aux travaux réellement réalisés.
+            </p>
+        </div>
+
+        <div class="grid">
+            <article class="card project-card reveal">
+                <div class="project-top">📡</div>
+                <div class="project-body">
+                    <span class="project-type">Réseaux</span>
+                    <h3>Infrastructure Wi-Fi sécurisée</h3>
+                    <p>
+                        Conception d'une architecture Wi-Fi avec
+                        contrôle d'accès à Internet par profil utilisateur.
+                    </p>
+                    <div class="skills">
+                        <span class="skill">MikroTik</span>
+                        <span class="skill">Wi-Fi</span>
+                        <span class="skill">Hotspot</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card project-card reveal">
+                <div class="project-top">🛡️</div>
+                <div class="project-body">
+                    <span class="project-type">Cybersécurité</span>
+                    <h3>Sécurisation des accès Internet</h3>
+                    <p>
+                        Étude d'un laboratoire virtuel associant
+                        un routeur MikroTik et Windows Server.
+                    </p>
+                    <div class="skills">
+                        <span class="skill">VMware</span>
+                        <span class="skill">Windows Server</span>
+                        <span class="skill">MikroTik</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card project-card reveal">
+                <div class="project-top">📚</div>
+                <div class="project-body">
+                    <span class="project-type">Pédagogie</span>
+                    <h3>Ressources pédagogiques</h3>
+                    <p>
+                        Élaboration de supports de cours, d'exercices
+                        corrigés et de travaux pratiques en informatique.
+                    </p>
+                    <div class="skills">
+                        <span class="skill">Formation</span>
+                        <span class="skill">TP</span>
+                        <span class="skill">Numérique</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="evenements">
+    <div class="container">
+        <div class="section-heading reveal">
+            <small>Agenda académique</small>
+            <h2>Événements & actualités</h2>
+            <p>
+                Un espace pour annoncer les cours, séminaires,
+                conférences, formations et activités scientifiques.
+            </p>
+        </div>
+
+        <div class="grid">
+            <article class="card event-card reveal">
+                <div class="event-date">📅 Date à préciser</div>
+                <h3>Séminaire scientifique</h3>
+                <p>
+                    Participation à des échanges scientifiques
+                    autour de l'informatique, de la recherche
+                    et de l'innovation pédagogique.
+                </p>
+            </article>
+
+            <article class="card event-card reveal">
+                <div class="event-date">📅 Date à préciser</div>
+                <h3>Atelier pratique en réseaux</h3>
+                <p>
+                    Séance de démonstration consacrée à la configuration
+                    des équipements réseau et à la sécurité informatique.
+                </p>
+            </article>
+
+            <article class="card event-card reveal">
+                <div class="event-date">📅 Date à préciser</div>
+                <h3>Formation numérique</h3>
+                <p>
+                    Activité de formation pour renforcer les compétences
+                    en outils numériques, systèmes et technologies Web.
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="contact-card reveal">
+            <div class="section-heading">
+                <small>Contact professionnel</small>
+                <h2>Construisons ensemble de nouvelles idées</h2>
+            </div>
+
+            <p>
+                Pour une collaboration académique, une formation,
+                un projet informatique ou un échange scientifique,
+                vous pouvez me contacter.
+            </p>
+
+            <!-- Remplacez l'adresse ci-dessous par votre adresse réelle -->
+            <a href="mailto:votre.email@exemple.com"
+               class="btn btn-primary">
+                ✉ Me contacter
+            </a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>
+            © <span id="year"></span> Prof. Fortina Muteba.
+            Tous droits réservés.
+        </p>
+        <p>Enseignement · Réseaux · Sécurité · Innovation</p>
+    </div>
+</footer>
+
+<script>
+    // Mise à jour automatique de l'année
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+    // Animation des cartes au défilement
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+        observer.observe(element);
+    });
+</script>
+
+</body>
+</html>
